@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "aigen",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authaigen213dd839213dd839",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

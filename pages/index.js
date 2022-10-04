@@ -13,6 +13,7 @@ import { API } from 'aws-amplify'
 import { useState, useEffect } from 'react'
 import { useShoppingCart, formatCurrencyString } from 'use-shopping-cart'
 import { AmplifyS3Image } from '@aws-amplify/ui-react/legacy'
+import { fetchCheckoutURL, listProducts } from '../src/graphql/queries'
 
 function HomePage() {
 	const theme = useTheme()
@@ -28,12 +29,35 @@ function HomePage() {
 	])
 
 	useEffect(() => {
-		// fetch the products once they're here
+		async function fetchProducts() {
+			try {
+				const { data } = await API.graphql({
+					query: listProducts,
+					authMode: 'AWS_IAM',
+				})
+				const productData = data.listProducts.items
+				setProducts(productData)
+			} catch (e) {
+				console.error(e)
+			}
+		}
+
+		fetchProducts()
 	}, [])
 
 	const handleCheckout = async (e) => {
 		e.preventDefault()
-		// send the user to stripe checkout
+		const { data } = await API.graphql({
+			query: fetchCheckoutURL,
+			authMode: 'AWS_IAM',
+			variables: {
+				input: JSON.stringify(cartDetails),
+			},
+		}).catch((e) => console.log('the returned error', e))
+
+		const { sessionId } = JSON.parse(data.fetchCheckoutURL)
+
+		window.location.href = sessionId
 	}
 
 	return (

@@ -1,0 +1,40 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-aigen-dev-213852-authRole",
+      "UnauthRoleArn": "arn:aws:iam::398207638253:role/amplify-aigen-dev-213852-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::398207638253:role/amplify-aigen-dev-213852-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-aigen-dev-213852-deployment",
+      "UnauthRoleName": "amplify-aigen-dev-213852-unauthRole",
+      "StackName": "amplify-aigen-dev-213852",
+      "StackId": "arn:aws:cloudformation:eu-central-1:398207638253:stack/amplify-aigen-dev-213852/2db17110-441c-11ed-bc95-0a4f83280dda",
+      "AmplifyAppId": "d22fcgzkyld0qq"
+    },
+    "categories": {
+      "auth": {
+        "aigen213dd839213dd839": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "fetchStripeSessionURL": {
+          "deploymentBucketName": "amplify-aigen-dev-213852-deployment",
+          "s3Key": "amplify-builds/fetchStripeSessionURL-3634337551344d6e5948-build.zip",
+          "secretsPathAmplifyAppId": "d22fcgzkyld0qq"
+        },
+        "stripeWebhooks": {
+          "deploymentBucketName": "amplify-aigen-dev-213852-deployment",
+          "s3Key": "amplify-builds/stripeWebhooks-574a77634456712b3164-build.zip",
+          "secretsPathAmplifyAppId": "d22fcgzkyld0qq",
+          "s3UserIdentity": "eu-central-1:58ed629f-fbc1-4d0b-984b-150e23ad842b"
+        }
+      },
+      "storage": {
+        "productImages": {}
+      },
+      "api": {
+        "aigen": {}
+      }
+    }
+  }
+}
